@@ -4,26 +4,28 @@
 		<meta charset='utf-8'>
 		<meta http-equiv="X-UA-Compatible" content="chrome=1">
 		<meta name="viewport" content="width=640">
+		<link rel="stylesheet" href="stylesheets/main.css">
 		<link rel="stylesheet" href="stylesheets/core.css" media="screen">
 		<link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
 		<link rel="stylesheet" href="stylesheets/pygment_trac.css">
 		<script type="text/javascript" src="javascripts/modernizr.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+		<script type="text/javascript" src="javascripts/jquery.elevateZoom-3.0.8.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function () {
 				$('#main_content').headsmart()
 			})
 		</script>
-		<title>RaspberryPi LED-Strip by popoklopsi</title>
+		<title>Raspberry Pi LED-Strip by popoklopsi</title>
 	</head>
 	<body>
 		<div class="shell">
 			<header>
 				<span class="ribbon-outer">
 					<span class="ribbon-inner">
-						<h1>RaspberryPi LED-Strip</h1>
-						<h2>A short tutorial how to connect your LED-Strip with your Raspberry Pi</h2>
+						<h1>Raspberry Pi & LED-Strip</h1>
+						<h2>A short tutorial how to connect your LED-Strip to your Raspberry Pi</h2>
 					</span>
 					<span class="left-tail"></span>
 					<span class="right-tail"></span>
@@ -34,18 +36,19 @@
 			<span class="banner-fix"></span>
 			<section id="main_content">
 				<h2>
-					<a name="tutorial-connect-a-raspberry-pi-with-a-led-strip" class="anchor" href="#tutorial-connect-a-raspberry-pi-with-a-led-strip"><span class="octicon octicon-link"></span></a>Tutorial: Connect a Raspberry Pi with a LED-Strip
+					<a name="tutorial-connect-a-raspberry-pi-with-a-led-strip" class="anchor" href="#tutorial-connect-a-raspberry-pi-with-a-led-strip"><span class="octicon octicon-link"></span></a>Tutorial: Connect a Raspberry Pi to a LED-Strip
 				</h2>
 				<p>In this short tutorial I will show you how to connect a RGB LED-Strip to your Raspberry Pi.</p>
-				<p><strong>Attention</strong>: I'm not responsible for any damage to your Strip or Raspberry Pi. <strong>Do this at your own risk!</strong></p>
+				<p><strong style="color: red">Attention</strong>: I'm not responsible for any damage to your LED-Strip or Raspberry Pi. <strong>Do this at your own risk!</strong></p>
+				<p><strong>Notice</strong>: You can zoom the pictures <strong>by scrolling.</strong></p>
 				<h3>
 					<a name="what-do-you-need" class="anchor" href="#what-do-you-need"><span class="octicon octicon-link"></span></a>What do you need?
 				</h3>
 				<ul>
-					<li>Your RGB LED Strip (with <strong>3 pins for RGB</strong> and <strong>1 pin for 12V DC</strong>)</li>
+					<li>A RGB LED Strip (with <strong>3 pins for RGB</strong> and <strong>1 pin for 12V DC</strong>)</li>
 					<li>Any breadboard</li>
-					<li>Jumper Wires Male to Female</li>
-					<li>Jumper Wires Male to Male</li>
+					<li>Jumper Wires (Male to Female)</li>
+					<li>Jumper Wires (Male to Male)</li>
 					<li>Three MOSFETs
 						<ul>
 							<li>For example: <strong>IRLZ34N</strong></li>
@@ -61,7 +64,7 @@
 					</li>
 					<li>The software <a href="https://github.com/sarfata/pi-blaster" title="pi-blaster"><strong>pi-blaster</strong></a> on your Raspberry Pi</li>
 				</ul>
-				<p><img src="http://overview" alt="Overview over all components"></p>
+				<p><img id="overview" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/overview.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/overview.jpg"/></p>
 				<h3>
 					<a name="1-connect-the-mosfets" class="anchor" href="#1-connect-the-mosfets"><span class="octicon octicon-link"></span></a>1. Connect the MOSFETs
 				</h3>
@@ -76,7 +79,20 @@
 					<li>Just put the three MOSFETs onto your breadboard</li>
 					<li>Connect the Source pins with the ground bus of your breadboard </li>
 				</ul>
-				<p><img src="http://mosfets" alt="Connecting the MOSFETs"></p>
+				<p>
+					<img id="mosfet1" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/mosfet.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/mosfet.jpg"/>
+					<div id="mosfet_gal">
+						<a href="#" data-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/mosfet.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/mosfet.jpg">
+							<img id="mosfet1" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/thumb/mosfet.jpg" />
+						</a>
+						<a href="#" data-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/mosfets_1.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/mosfets_1.jpg">
+							<img id="mosfet2" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/thumb/mosfets_1.jpg" />
+						</a>
+						<a href="#" data-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/mosfets_2.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/mosfets_2.jpg">
+							<img id="mosfet3" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/thumb/mosfets_2.jpg" />
+						</a>
+					</div>
+				</p>
 				<h3>
 					<a name="2-connect-the-led-strip" class="anchor" href="#2-connect-the-led-strip"><span class="octicon octicon-link"></span></a>2. Connect the LED-Strip
 				</h3>
@@ -84,11 +100,24 @@
 					<li>Connect for each color the <strong>Drain</strong> pin with the associated color of the LED-Strip</li>
 					<li>Put a wire from the 12V pin of the LED-Strip to the supply voltage bus of the breadboard</li>
 				</ul>
-				<p><img src="http://led-strip" alt="Connecting the LED-Strip"></p>
+				<p>
+					<img id="led1" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/led_1.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/led_1.jpg"/>
+					<div id="led_gal">
+						<a href="#" data-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/led_1.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/led_1.jpg">
+							<img id="led1" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/thumb/led_1.jpg" />
+						</a>
+						<a href="#" data-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/led_2.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/led_2.jpg">
+							<img id="led2" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/thumb/led_2.jpg" />
+						</a>
+						<a href="#" data-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/led_3.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/led_3.jpg">
+							<img id="led3" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/thumb/led_3.jpg" />
+						</a>
+					</div>
+				</p>
 				<h3>
 					<a name="3-connect-the-raspberry-pi" class="anchor" href="#3-connect-the-raspberry-pi"><span class="octicon octicon-link"></span></a>3. Connect the Raspberry Pi
 				</h3>
-				<p><img src="http://gpios" alt="Overview over the GPIO pins"> Image source <a href="raspberrypi-spy.co.uk" title="Image Source">raspberrypi-spy.co.uk</a></p>
+				<p><img id="gpio" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/Raspberry_GPIO_Pins.png" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/Raspberry_GPIO_Pins.png"/> Image source <a href="http://raspberrypi-spy.co.uk" title="Image Source">raspberrypi-spy.co.uk</a></p>
 				<ul>
 					<li>Connect one of the ground pins with the ground bus of the breadboard</li>
 					<li>Connect for each color one of the green pins with the <strong>Gate</strong> of the MOSFETs
@@ -103,7 +132,20 @@
 						</ul>
 					</li>
 				</ul>
-				<p><img src="http://raspberry" alt="Connecting the Raspberry Pi"></p>
+				<p>
+					<img id="pi1" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/pi_1.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/pi_1.jpg"/>
+					<div id="pi_gal">
+						<a href="#" data-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/pi_1.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/pi_1.jpg">
+							<img id="pi1" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/thumb/pi_1.jpg" />
+						</a>
+						<a href="#" data-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/pi_2.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/pi_2.jpg">
+							<img id="pi2" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/thumb/pi_2.jpg" />
+						</a>
+						<a href="#" data-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/pi_3.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/pi_3.jpg">
+							<img id="pi3" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/thumb/pi_3.jpg" />
+						</a>
+					</div>
+				</p>
 				<h3>
 					<a name="4-connect-the-extra-low-voltage-connector" class="anchor" href="#4-connect-the-extra-low-voltage-connector"><span class="octicon octicon-link"></span></a>4. Connect the Extra-low voltage connector
 				</h3>
@@ -118,12 +160,45 @@
 					<li>Connect your Power Adapter with the Extra-low voltage connector</li>
 					<li>Plug in your Power Adapter</li>
 				</ul>
-				<p><img src="http://connector" alt="Connecting the Extra-low voltage connector"></p>
+				<p>
+					<img id="power1" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/power_1.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/power_1.jpg"/>
+					<div id="power_gal">
+						<a href="#" data-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/power_1.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/power_1.jpg">
+							<img id="power1" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/thumb/power_1.jpg" />
+						</a>
+						<a href="#" data-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/power_2.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/power_2.jpg">
+							<img id="power2" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/thumb/power_2.jpg" />
+						</a>
+						<a href="#" data-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/power_3.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/power_3.jpg">
+							<img id="power3" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/thumb/power_3.jpg" />
+						</a>
+					</div>
+				</p>
 				<h3>
-					<a name="5-testing" class="anchor" href="#5-testing"><span class="octicon octicon-link"></span></a>5. Testing
+					<a name="5-finish" class="anchor" href="#5-finish"><span class="octicon octicon-link"></span></a>5. Finish
 				</h3>
 				<ul>
-					<li>Connect to your Raspberry Pi via SSH or Terminal</li>
+					<li>Here are images of the finish system</li>
+				</ul>
+				<p>
+					<img id="finish1" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/finish_1.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/finish_1.jpg"/>
+					<div id="finish_gal">
+						<a href="#" data-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/finish_1.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/finish_1.jpg">
+							<img id="finish1" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/thumb/finish_1.jpg" />
+						</a>
+						<a href="#" data-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/finish_2.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/finish_2.jpg">
+							<img id="finish2" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/thumb/finish_2.jpg" />
+						</a>
+						<a href="#" data-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/finish_3.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/finish_3.jpg">
+							<img id="finish3" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/thumb/finish_3.jpg" />
+						</a>
+					</div>
+				</p>
+				<h3>
+					<a name="6-testing" class="anchor" href="#6-testing"><span class="octicon octicon-link"></span></a>6. Testing
+				</h3>
+				<ul>
+					<li>Connect to your Raspberry Pi via SSH or open a terminal</li>
 					<li>Type into your console:
 						<ul>
 							<li><code>echo "17=1" &gt; /dev/pi-blaster</code> and your LED should be red</li>
@@ -132,15 +207,33 @@
 						</ul>
 					</li>
 				</ul>
+				<p>
+					<img id="finish_color1" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/finish_red.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/finish_red.jpg"/>
+					<div id="finish_color_gal">
+						<a href="#" data-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/finish_red.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/finish_red.jpg">
+							<img id="finish_color1" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/thumb/finish_red.jpg" />
+						</a>
+						<a href="#" data-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/finish_yellow.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/finish_yellow.jpg">
+							<img id="finish_color2" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/thumb/finish_yellow.jpg" />
+						</a>
+						<a href="#" data-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/small/finish_pink.jpg" data-zoom-image="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/finish_pink.jpg">
+							<img id="finish_color3" src="http://popoklopsi.github.io/RaspberryPi-LedStrip/images/pi/thumb/finish_pink.jpg" />
+						</a>
+					</div>
+				</p>
 				<h3>
-					<a name="what-now" class="anchor" href="#what-now"><span class="octicon octicon-link"></span></a>What now?
+					<a name="what-now" class="anchor" href="#what-now"><span class="octicon octicon-link"></span></a>What next?
 				</h3>
 				<ul>
 					<li>Now you can do everything with your LED-Strip
 						<ul>
-							<li>For example you can use python to control the LED-Strip</li>
-							<li>With <code>os.system("echo PIN=BRIGHTNESS &gt; /dev/pi-blaster")</code> you can echo to <strong>/dev/pi-blaster</strong></li>
-							<li>You can also try my fading script: <a href="http://fading" title="Python Fading">http://fading</a></li>
+							<li>For example you can use Python to control the LED-Strip</li>
+							<li>You can set the brightness of a pin with:
+								<ul>
+									<li><code>os.system("echo PIN=BRIGHTNESS &gt; /dev/pi-blaster")</code></li>
+								</ul>
+							</li>
+							<li>You can also try my fading script: <a href="https://github.com/popoklopsi/RaspberryPi-LedStrip/blob/master/fading.py" title="Python Fading">Fading.py</a></li>
 						</ul>
 					</li>
 					<li>If you have questions, feel free to leave a comment!</li>
@@ -179,6 +272,124 @@
 			  var pageTracker = _gat._getTracker("UA-000000-01");
 			pageTracker._trackPageview();
 			} catch(err) {}
+		</script>
+		<script>
+			$('#overview').elevateZoom({
+				cursor: "pointer",
+				scrollZoom: true,
+				zoomWindowWidth: 800,
+				zoomWindowHeight: 800
+			});
+			
+			
+			$('#gpio').elevateZoom({
+				cursor: "pointer",
+				scrollZoom: true,
+				zoomWindowWidth: 800,
+				zoomWindowHeight: 1000
+			});
+			
+			
+			$('#mosfet1').elevateZoom({
+				gallery:'mosfet_gal',
+				galleryActiveClass: 'active',
+				scrollZoom: true, 
+				cursor: "pointer",
+				zoomWindowWidth: 800,
+				zoomWindowHeight: 800
+			});
+			
+			$("#mosfet1").bind("click", function(e) {  
+				var ez = $('#mosfet1').data('elevateZoom');
+				$.fancybox(ez.getGalleryList());
+				
+				return false;
+			});
+			
+			
+			$('#led1').elevateZoom({
+				gallery:'led_gal',
+				galleryActiveClass: 'active',
+				scrollZoom: true, 
+				cursor: "pointer",
+				zoomWindowWidth: 800,
+				zoomWindowHeight: 800
+			});
+			
+			$("#led1").bind("click", function(e) {  
+				var ez = $('#led1').data('elevateZoom');
+				$.fancybox(ez.getGalleryList());
+				
+				return false;
+			});
+			
+			
+			$('#pi1').elevateZoom({
+				gallery:'pi_gal',
+				galleryActiveClass: 'active',
+				scrollZoom: true, 
+				cursor: "pointer",
+				zoomWindowWidth: 800,
+				zoomWindowHeight: 800
+			});
+			
+			$("#pi1").bind("click", function(e) {  
+				var ez = $('#pi1').data('elevateZoom');
+				$.fancybox(ez.getGalleryList());
+				
+				return false;
+			});
+			
+			
+			$('#power1').elevateZoom({
+				gallery:'power_gal',
+				galleryActiveClass: 'active',
+				scrollZoom: true, 
+				cursor: "pointer",
+				zoomWindowWidth: 800,
+				zoomWindowHeight: 800
+			});
+			
+			$("#power1").bind("click", function(e) {  
+				var ez = $('#power1').data('elevateZoom');
+				$.fancybox(ez.getGalleryList());
+				
+				return false;
+			});
+			
+			
+			$('#finish1').elevateZoom({
+				gallery:'finish_gal',
+				galleryActiveClass: 'active',
+				scrollZoom: true, 
+				cursor: "pointer",
+				zoomWindowWidth: 800,
+				zoomWindowHeight: 800
+			});
+			
+			$("#finish1").bind("click", function(e) {  
+				var ez = $('#finish1').data('elevateZoom');
+				$.fancybox(ez.getGalleryList());
+				
+				return false;
+			});
+			
+			
+			$('#finish_color1').elevateZoom({
+				gallery:'finish_color_gal',
+				galleryActiveClass: 'active',
+				scrollZoom: true, 
+				cursor: "pointer",
+				zoomWindowWidth: 800,
+				zoomWindowHeight: 800
+			});
+			
+			$("#finish_color1").bind("click", function(e) {  
+				var ez = $('#finish_color1').data('elevateZoom');
+				$.fancybox(ez.getGalleryList());
+				
+				return false;
+			});
 		</script>
 	</body>
 </html>
