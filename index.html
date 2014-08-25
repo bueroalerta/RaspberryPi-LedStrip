@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640">
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>RaspberryPi LED-Strip by popoklopsi</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/popoklopsi/RaspberryPi-LedStrip">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>RaspberryPi LED-Strip</h1>
+            <h2>A short tutorial how to connect your LED-Strip with your Raspberry Pi</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/popoklopsi/RaspberryPi-LedStrip/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/popoklopsi/RaspberryPi-LedStrip/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h2>
+<a name="tutorial-connect-a-raspberry-pi-with-a-led-strip" class="anchor" href="#tutorial-connect-a-raspberry-pi-with-a-led-strip"><span class="octicon octicon-link"></span></a>Tutorial: Connect a Raspberry Pi with a LED-Strip</h2>
+
+<p>In this short tutorial I will show you how to connect a RGB LED-Strip to your Raspberry Pi.</p>
+
+<p><strong>Attention</strong>: I'm not responsible for any damage to your Strip or Raspberry Pi. <strong>Do this at your own risk!</strong></p>
+
+<h3>
+<a name="what-do-you-need" class="anchor" href="#what-do-you-need"><span class="octicon octicon-link"></span></a>What do you need?</h3>
+
+<ul>
+<li>Your RGB LED Strip (with <strong>3 pins for RGB</strong> and <strong>1 pin for 12V DC</strong>)</li>
+<li>Any breadboard</li>
+<li>Jumper Wires Male to Female</li>
+<li>Jumper Wires Male to Male</li>
+<li>Three MOSFETs
+
+<ul>
+<li>For example: <strong>IRLZ34N</strong>
+</li>
+</ul>
+</li>
+<li>Power Adapter (<strong>12V DC ~2A</strong>)</li>
+<li>Extra-low voltage connector
+
+<ul>
+<li>Has to fit with your Power Adapter</li>
+<li>I use one with screws for a easy connecting with the wires</li>
+<li>If you already have a controller, you can also desolder the Extra-low voltage connector from there and solder it up with two wires</li>
+</ul>
+</li>
+<li>The software <a href="https://github.com/sarfata/pi-blaster" title="pi-blaster"><strong>pi-blaster</strong></a> on your Raspberry Pi</li>
+</ul><p><img src="http://overview" alt="Overview over all components"></p>
+
+<h3>
+<a name="1-connect-the-mosfets" class="anchor" href="#1-connect-the-mosfets"><span class="octicon octicon-link"></span></a>1. Connect the MOSFETs</h3>
+
+<ul>
+<li>If you look <strong>at the front</strong> of the MOSFETs:
+
+<ul>
+<li>The first pin from left is the <strong>Gate</strong>
+</li>
+<li>The second one the <strong>Drain</strong>
+</li>
+<li>The third one the <strong>Source</strong>
+</li>
+</ul>
+</li>
+<li>Just put the three MOSFETs onto your breadboard</li>
+<li>Connect the Source pins with the ground bus of your breadboard </li>
+</ul><p><img src="http://mosfets" alt="Connecting the MOSFETs"></p>
+
+<h3>
+<a name="2-connect-the-led-strip" class="anchor" href="#2-connect-the-led-strip"><span class="octicon octicon-link"></span></a>2. Connect the LED-Strip</h3>
+
+<ul>
+<li>Connect for each color the <strong>Drain</strong> pin with the associated color of the LED-Strip</li>
+<li>Put a wire from the 12V pin of the LED-Strip to the supply voltage bus of the breadboard</li>
+</ul><p><img src="http://led-strip" alt="Connecting the LED-Strip"></p>
+
+<h3>
+<a name="3-connect-the-raspberry-pi" class="anchor" href="#3-connect-the-raspberry-pi"><span class="octicon octicon-link"></span></a>3. Connect the Raspberry Pi</h3>
+
+<p><img src="http://gpios" alt="Overview over the GPIO pins"> Image source <a href="raspberrypi-spy.co.uk" title="Image Source">raspberrypi-spy.co.uk</a>    </p>
+
+<ul>
+<li>Connect one of the ground pins with the ground bus of the breadboard</li>
+<li>Connect for each color one of the green pins with the <strong>Gate</strong> of the MOSFETs
+
+<ul>
+<li>I will use: 
+
+<ul>
+<li>
+<strong>GPIO17</strong> for Red</li>
+<li>
+<strong>GPIO22</strong> for Green</li>
+<li>
+<strong>GPIO24</strong> for Blue</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><p><img src="http://raspberry" alt="Connecting the Raspberry Pi"></p>
+
+<h3>
+<a name="4-connect-the-extra-low-voltage-connector" class="anchor" href="#4-connect-the-extra-low-voltage-connector"><span class="octicon octicon-link"></span></a>4. Connect the Extra-low voltage connector</h3>
+
+<ul>
+<li>If you have one with Screws:
+
+<ul>
+<li>Fasten one wire with the ground and one withe the voltage part in place</li>
+</ul>
+</li>
+<li>Connect the ground wire with the ground bus of the breadboard</li>
+<li>Connect the voltage wire with the voltage bus of the breadboard</li>
+<li>Connect your Power Adapter with the Extra-low voltage connector</li>
+<li>Plug in your Power Adapter</li>
+</ul><p><img src="http://connector" alt="Connecting the Extra-low voltage connector"></p>
+
+<h3>
+<a name="5-testing" class="anchor" href="#5-testing"><span class="octicon octicon-link"></span></a>5. Testing</h3>
+
+<ul>
+<li>Connect to your Raspberry Pi via SSH or Terminal</li>
+<li>Type into your console:
+
+<ul>
+<li>
+<code>echo "17=1" &gt; /dev/pi-blaster</code> and your LED should be red</li>
+<li>
+<code>echo "22=0.5" &gt; /dev/pi-blaster</code> and your LED should be yellow</li>
+<li>
+<code>echo "24=0.5" &gt; /dev/pi-blaster</code> and your LED should be purple</li>
+</ul>
+</li>
+</ul><h3>
+<a name="what-now" class="anchor" href="#what-now"><span class="octicon octicon-link"></span></a>What now?</h3>
+
+<ul>
+<li>Now you can do everything with your LED-Strip
+
+<ul>
+<li>For example you can use python to control the LED-Strip</li>
+<li>With <code>os.system("echo PIN=BRIGHTNESS &gt; /dev/pi-blaster")</code> you can echo to <strong>/dev/pi-blaster</strong>
+</li>
+<li>You can also try my fading script: <a href="http://fading" title="Python Fading">http://fading</a>
+</li>
+</ul>
+</li>
+<li>If you have questions, feel free to ask!</li>
+</ul>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/popoklopsi">popoklopsi</a> can be found on <a href="https://github.com/popoklopsi/RaspberryPi-LedStrip">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-000000-01");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
