@@ -276,27 +276,24 @@
 		<script>
 			$('#overview').elevateZoom({
 				cursor: "pointer",
-				scrollZoom: true,
-				zoomWindowWidth: 800,
-				zoomWindowHeight: 800
+				zoomType: "inner",
+				scrollZoom: true
 			});
 			
 			
 			$('#gpio').elevateZoom({
 				cursor: "pointer",
-				scrollZoom: true,
-				zoomWindowWidth: 800,
-				zoomWindowHeight: 1000
+				zoomType: "inner",
+				scrollZoom: true
 			});
 			
 			
 			$('#mosfet1').elevateZoom({
 				gallery:'mosfet_gal',
 				galleryActiveClass: 'active',
+				zoomType: "inner",
 				scrollZoom: true, 
-				cursor: "pointer",
-				zoomWindowWidth: 800,
-				zoomWindowHeight: 800
+				cursor: "pointer"
 			});
 			
 			$("#mosfet1").bind("click", function(e) {  
@@ -310,10 +307,9 @@
 			$('#led1').elevateZoom({
 				gallery:'led_gal',
 				galleryActiveClass: 'active',
+				zoomType: "inner",
 				scrollZoom: true, 
-				cursor: "pointer",
-				zoomWindowWidth: 800,
-				zoomWindowHeight: 800
+				cursor: "pointer"
 			});
 			
 			$("#led1").bind("click", function(e) {  
@@ -327,10 +323,9 @@
 			$('#pi1').elevateZoom({
 				gallery:'pi_gal',
 				galleryActiveClass: 'active',
+				zoomType: "inner",
 				scrollZoom: true, 
-				cursor: "pointer",
-				zoomWindowWidth: 800,
-				zoomWindowHeight: 800
+				cursor: "pointer"
 			});
 			
 			$("#pi1").bind("click", function(e) {  
@@ -344,10 +339,9 @@
 			$('#power1').elevateZoom({
 				gallery:'power_gal',
 				galleryActiveClass: 'active',
+				zoomType: "inner",
 				scrollZoom: true, 
-				cursor: "pointer",
-				zoomWindowWidth: 800,
-				zoomWindowHeight: 800
+				cursor: "pointer"
 			});
 			
 			$("#power1").bind("click", function(e) {  
@@ -361,10 +355,9 @@
 			$('#finish1').elevateZoom({
 				gallery:'finish_gal',
 				galleryActiveClass: 'active',
+				zoomType: "inner",
 				scrollZoom: true, 
-				cursor: "pointer",
-				zoomWindowWidth: 800,
-				zoomWindowHeight: 800
+				cursor: "pointer"
 			});
 			
 			$("#finish1").bind("click", function(e) {  
@@ -378,10 +371,9 @@
 			$('#finish_color1').elevateZoom({
 				gallery:'finish_color_gal',
 				galleryActiveClass: 'active',
+				zoomType: "inner",
 				scrollZoom: true, 
-				cursor: "pointer",
-				zoomWindowWidth: 800,
-				zoomWindowHeight: 800
+				cursor: "pointer"
 			});
 			
 			$("#finish_color1").bind("click", function(e) {  
