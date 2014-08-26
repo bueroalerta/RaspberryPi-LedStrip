@@ -25,7 +25,7 @@
 				<span class="ribbon-outer">
 					<span class="ribbon-inner">
 						<h1>Raspberry Pi & LED-Strip</h1>
-						<h2>A short tutorial how to connect your LED-Strip to your Raspberry Pi</h2>
+						<h2>A tutorial how to connect a Raspberry Pi to a LED-Strip</h2>
 					</span>
 					<span class="left-tail"></span>
 					<span class="right-tail"></span>
@@ -38,9 +38,8 @@
 				<h2>
 					<a name="tutorial-connect-a-raspberry-pi-with-a-led-strip" class="anchor" href="#tutorial-connect-a-raspberry-pi-with-a-led-strip"><span class="octicon octicon-link"></span></a>Tutorial: Connect a Raspberry Pi to a LED-Strip
 				</h2>
-				<p>In this short tutorial I will show you how to connect a RGB LED-Strip to your Raspberry Pi.</p>
 				<p><strong style="color: red">Attention</strong>: I'm not responsible for any damage to your LED-Strip or Raspberry Pi. <strong>Do this at your own risk!</strong></p>
-				<p><strong>Notice</strong>: You can zoom the pictures <strong>by scrolling.</strong></p>
+				<p><strong>Notice</strong>: You can control the zoom depth <strong>by scrolling</strong>.</p>
 				<h3>
 					<a name="what-do-you-need" class="anchor" href="#what-do-you-need"><span class="octicon octicon-link"></span></a>What do you need?
 				</h3>
@@ -54,15 +53,15 @@
 							<li>For example: <strong>IRLZ34N</strong></li>
 						</ul>
 					</li>
-					<li>Power Adapter (<strong>12V DC ~2A</strong>)</li>
-					<li>Extra-low voltage connector
+					<li>A Power Adapter (<strong>12V DC ~2A</strong>)</li>
+					<li>An Extra-low voltage connector
 						<ul>
-							<li>Has to fit with your Power Adapter</li>
-							<li>I use one with screws for a easy connecting with the wires</li>
+							<li>Has to fit with the Power Adapter</li>
+							<li>I use one with screws for a easy connecting to the wires</li>
 							<li>If you already have a controller, you can also desolder the Extra-low voltage connector from there and solder it up with two wires</li>
 						</ul>
 					</li>
-					<li>The software <a href="https://github.com/sarfata/pi-blaster" title="pi-blaster"><strong>pi-blaster</strong></a> on your Raspberry Pi</li>
+					<li>The software <a href="https://github.com/sarfata/pi-blaster" title="pi-blaster"><strong>pi-blaster</strong></a> on the Raspberry Pi</li>
 				</ul>
 				<p><img id="overview" src="images/pi/small/overview.jpg" data-zoom-image="images/pi/overview.jpg"/></p>
 				<h3>
@@ -76,8 +75,8 @@
 							<li>The third one the <strong>Source</strong></li>
 						</ul>
 					</li>
-					<li>Just put the three MOSFETs onto your breadboard</li>
-					<li>Connect the Source pins with the ground bus of your breadboard </li>
+					<li>Just put the three MOSFETs onto the breadboard</li>
+					<li>Connect the Source pins to the ground bus of the breadboard </li>
 				</ul>
 				<p>
 					<img id="mosfet1" src="images/pi/small/mosfet.jpg" data-zoom-image="images/pi/mosfet.jpg"/>
@@ -97,7 +96,7 @@
 					<a name="2-connect-the-led-strip" class="anchor" href="#2-connect-the-led-strip"><span class="octicon octicon-link"></span></a>2. Connect the LED-Strip
 				</h3>
 				<ul>
-					<li>Connect for each color the <strong>Drain</strong> pin with the associated color of the LED-Strip</li>
+					<li>Connect for each color the <strong>Drain</strong> pin to the associated color of the LED-Strip</li>
 					<li>Put a wire from the 12V pin of the LED-Strip to the supply voltage bus of the breadboard</li>
 				</ul>
 				<p>
@@ -117,10 +116,10 @@
 				<h3>
 					<a name="3-connect-the-raspberry-pi" class="anchor" href="#3-connect-the-raspberry-pi"><span class="octicon octicon-link"></span></a>3. Connect the Raspberry Pi
 				</h3>
-				<p><img id="gpio" src="images/pi/small/Raspberry_GPIO_Pins.png" data-zoom-image="images/pi/Raspberry_GPIO_Pins.png"/> Image source <a href="http://raspberrypi-spy.co.uk" title="Image Source">raspberrypi-spy.co.uk</a></p>
+				<p><h4>GPIO Pins of the Raspberry Pi:</h4><img id="gpio" src="images/pi/small/Raspberry_GPIO_Pins.png" data-zoom-image="images/pi/Raspberry_GPIO_Pins.png"/> Image source <a href="http://raspberrypi-spy.co.uk" title="Image Source">raspberrypi-spy.co.uk</a></p>
 				<ul>
-					<li>Connect one of the ground pins with the ground bus of the breadboard</li>
-					<li>Connect for each color one of the green pins with the <strong>Gate</strong> of the MOSFETs
+					<li>Connect one of the ground pins to the ground bus of the breadboard</li>
+					<li>Connect for each color one of the green pins to the <strong>Gate</strong> of the MOSFETs
 						<ul>
 							<li>I will use: 
 								<ul>
@@ -155,10 +154,10 @@
 							<li>Fasten one wire with the ground and one withe the voltage part in place</li>
 						</ul>
 					</li>
-					<li>Connect the ground wire with the ground bus of the breadboard</li>
-					<li>Connect the voltage wire with the voltage bus of the breadboard</li>
-					<li>Connect your Power Adapter with the Extra-low voltage connector</li>
-					<li>Plug in your Power Adapter</li>
+					<li>Connect the ground wire to the ground bus of the breadboard</li>
+					<li>Connect the voltage wire to the voltage bus of the breadboard</li>
+					<li>Connect the Power Adapter with the Extra-low voltage connector</li>
+					<li>Plug in the Power Adapter</li>
 				</ul>
 				<p>
 					<img id="power1" src="images/pi/small/power_1.jpg" data-zoom-image="images/pi/power_1.jpg"/>
@@ -198,12 +197,12 @@
 					<a name="6-testing" class="anchor" href="#6-testing"><span class="octicon octicon-link"></span></a>6. Testing
 				</h3>
 				<ul>
-					<li>Connect to your Raspberry Pi via SSH or open a terminal</li>
-					<li>Type into your console:
+					<li>Connect to the Raspberry Pi via SSH or open a terminal</li>
+					<li>Type into the console:
 						<ul>
-							<li><code>echo "17=1" &gt; /dev/pi-blaster</code> and your LED should be red</li>
-							<li><code>echo "22=0.5" &gt; /dev/pi-blaster</code> and your LED should be yellow</li>
-							<li><code>echo "24=0.5" &gt; /dev/pi-blaster</code> and your LED should be purple</li>
+							<li><code>echo "17=1" &gt; /dev/pi-blaster</code> and the LED should be red</li>
+							<li><code>echo "22=0.5" &gt; /dev/pi-blaster</code> and the LED should be yellow</li>
+							<li><code>echo "24=0.5" &gt; /dev/pi-blaster</code> and the LED should be purple</li>
 						</ul>
 					</li>
 				</ul>
@@ -225,7 +224,7 @@
 					<a name="what-now" class="anchor" href="#what-now"><span class="octicon octicon-link"></span></a>What next?
 				</h3>
 				<ul>
-					<li>Now you can do everything with your LED-Strip
+					<li>Now you can do everything with the LED-Strip
 						<ul>
 							<li>For example you can use Python to control the LED-Strip</li>
 							<li>You can set the brightness of a pin with:
@@ -233,7 +232,12 @@
 									<li><code>os.system("echo PIN=BRIGHTNESS &gt; /dev/pi-blaster")</code></li>
 								</ul>
 							</li>
-							<li>You can also try my fading script: <a href="https://github.com/popoklopsi/RaspberryPi-LedStrip/blob/master/fading.py" title="Python Fading">Fading.py</a></li>
+							<li>You can also try my fading script: <a href="https://raw.githubusercontent.com/popoklopsi/RaspberryPi-LedStrip/master/fading.py" title="Python Fading">fading.py</a>
+								<ul>
+									<li>Set the pin numbers of the 3 colors</li>
+									<li>Start with: <code>python fading.py</code></li>
+								</ul>
+							</li>
 						</ul>
 					</li>
 					<li>If you have questions, feel free to leave a comment!</li>
