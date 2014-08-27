@@ -1,4 +1,4 @@
-RaspberryPi-LedStrip
+Raspberry Pi & LED-Strip
 ====================
 
-A short tutorial how to connect your LED-Strip with your Raspberry Pi
+[Here](http://popoklopsi.github.io/RaspberryPi-LedStrip/) you can find a tutorial about how to connect a Raspberry Pi to a LED-Strip
