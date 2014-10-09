@@ -35,6 +35,9 @@ RED_PIN   = 17
 GREEN_PIN = 22
 BLUE_PIN  = 24
 
+# Number of color changes per step (more is faster, but with less effect)
+STEPS = 3
+
 ###### END ######
 
 
@@ -60,6 +63,17 @@ abort = False
 state = True
 
 
+def updateColor(color, step):
+	color += step
+	
+	if color > 255:
+		return 255
+	if color < 0:
+		return 0
+		
+	return color
+
+
 def setLights(light, brightness):
 	if light == 0:
 		os.system("echo %i=%f > /dev/pi-blaster" % (RED_PIN, brightness))
@@ -69,7 +83,7 @@ def setLights(light, brightness):
 		os.system("echo %i=%f > /dev/pi-blaster" % (BLUE_PIN, brightness))
 
 
-def getch():
+def getCh():
 	fd = sys.stdin.fileno()
 	old_settings = termios.tcgetattr(fd)
 	
@@ -82,14 +96,14 @@ def getch():
 	return ch
 
 
-def check_key():
+def checkKey():
 	global realfactor
 	global bright
 	global state
 	global abort
 	
 	while True:
-		c = getch()
+		c = getCh()
 		
 		if c == '+':
 			bright = bright + 0.05
@@ -120,7 +134,7 @@ def check_key():
 			abort = True
 			break
 
-start_new_thread(check_key, ())
+start_new_thread(checkKey, ())
 
 
 print "+ / - = Increase / Decrease brightness"
@@ -135,28 +149,28 @@ setLights(2, realfactor * float(b))
 
 while abort == False:
 	if state:
-		if (r == 255 and b == 0 and g < 255):
-			g += 1
+		if r == 255 and b == 0 and g < 255:
+			g = updateColor(g, STEPS)
 			setLights(1, realfactor * float(g))
 		
-		elif (g == 255 and b == 0 and r > 0):
-			r -= 1
+		elif g == 255 and b == 0 and r > 0:
+			r = updateColor(r, -STEPS)
 			setLights(0, realfactor * float(r))
 		
-		elif (r == 0 and g == 255 and b < 255):
-			b += 1
+		elif r == 0 and g == 255 and b < 255:
+			b = updateColor(b, STEPS)
 			setLights(2, realfactor * float(b))
 		
-		elif (r == 0 and b == 255 and g > 0):
-			g -= 1
+		elif r == 0 and b == 255 and g > 0:
+			g = updateColor(g, -STEPS)
 			setLights(1, realfactor * float(g))
 		
-		elif (g == 0 and b == 255 and r < 255):
-			r += 1
+		elif g == 0 and b == 255 and r < 255:
+			r = updateColor(r, STEPS)
 			setLights(0, realfactor * float(r))
 		
-		elif (r == 255 and g == 0 and b > 0):
-			b -= 1
+		elif r == 255 and g == 0 and b > 0:
+			b = updateColor(b, -STEPS)
 			setLights(2, realfactor * float(b))
 	
 print "Aborting..."
