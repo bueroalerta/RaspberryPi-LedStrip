@@ -1,0 +1,91 @@
+{
+  "pitut": {
+    "header": {
+      "title": "Raspberry Pi & RGB LED-Strip",
+      "subtitle": "Tutorial wie man ein Raspberry Pi mit einem RGB LED-Strip verbindet"
+    },
+    "main": {
+      "intro": {
+        "title": "Tutorial: Raspberry Pi mit einem RGB LED-Strip verbinden",
+        "attention": "Achtung",
+        "responsible": "Ich bin nicht für Schäden an deinem LED-Strip oder Raspberry Pi verantworlich.",
+        "ownrisk": "Tue das auf eigenes Risiko!",
+        "zoom": "Du kannst das Zoom-Level ",
+        "zoomscroll": "per Scrollen steuern",
+        "need": "Was brauchst du?",
+        "rgbled": "Ein RGB LED Strip",
+        "rgbledinfo": "mit 3 Pins für RGB und 1 Pin für 12V DC",
+        "breadboard": "Irgendein Steckbrett",
+        "jumpmatofe": "Steckbrücken (Male zu Female)",
+        "jumpmatoma": "Steckbrücken (Male zu Male)",
+        "threemosfets": "Drei MOSFETs",
+        "forexample": "Zum Beispiel",
+        "poweradapter": "Ein Netzteil",
+        "extralow": "Eine Niedervolt Buchse",
+        "fitto": "Muss zum Netzteil Stecker passen",
+        "withwires": "Ich benutze eins mit Schrauben zum leichten verbinden",
+        "software": "Die Software",
+        "installed": "auf dem Raspberry Pi"
+      },
+      "mosfet": {
+        "connect": "1. Verbinde die MOSFETs",
+        "look": "Wenn du",
+        "front": "von vorne",
+        "ofmosfet": "auf die MOSFETs schaust",
+        "firstpin": "Der erste Pin von links ist der",
+        "secondpin": "Der zweite Pin der",
+        "thirdpin": "Und der dritte Pin der",
+        "ontobreadboard": "Stecke einfach alle drei MOSFETs auf das Steckbrett",
+        "toground": "Verbinde die Source Pins mit den Ground-Bus des Steckbretts"
+      },
+      "strip": {
+        "connect": "2. Verbinde den LED-Strip",
+        "connectcolor": "Verbinde für jede Farbe den",
+        "connectass": "Pin mit der jeweiligen Farbe des LED-Strip",
+        "supply": "Stecke ein Kabel vom 12V Pin des LED-Strip zum Spannungs-Bus des Steckbretts"
+      },
+      "pi": {
+        "connect": "3. Verbinde das Raspberry Pi",
+        "pins": "GPIO Pins des Raspberry Pi:",
+        "breadboard": "Verbinde eines der Ground Pins mit dem Ground-Bus des Steckbretts",
+        "connectcolor": "Verbinde für jede Farbe eines der grünen Pins mit dem",
+        "ofmosfets": "der MOSFETs",
+        "iuse": "Ich werde folgende benutzen",
+        "forred": "für Rot",
+        "forgreen": "für Grün",
+        "forblue": "für Blau"
+      },
+      "extralow": {
+        "connect": "4. Verbinden der Niedervolt Buchse",
+        "screws": "Wenn du eine mit Schrauben hast:",
+        "fasten": "Verbinde ein Kabel mit den Ground und eines mit der Spannungsversorgungs und schraube diese fest",
+        "ground": "Verbinde das Ground Kabel mit dem Ground-Bus des Steckbretts",
+        "voltage": "Verbinde das Spannungs Kabel mit dem Spannungs-Bus des Steckbretts",
+        "power": "Verbinde das Netzteil mit der Buchse",
+        "plugin": "Stecke das Netzteil ein"
+      },
+      "finish": {
+        "title": "5. Fertig",
+        "images": "Hier sind Bilder des fertigen Systems"
+      },
+      "testing": {
+        "title": "6. Testen",
+        "connect": "Stelle eine Verbindung zum Raspberry Pi via SSH her oder öffne ein Terminal",
+        "type": "Schreibe in die Konsole:",
+        "red": "und die LEDs sollten Rot sein",
+        "yellow": "und die LEDs sollten Gelb sein",
+        "purple": "und die LEDs sollten Lila sein"
+      },
+      "next": {
+        "title": "Was jetzt?",
+        "doeverything": "Jetzt kannst du fast alles mit dem LED-Strip machen",
+        "python": "Zum Beispiel kannst du mit Python den LED-Strip kontrollieren",
+        "brightness": "Du kannst die Helligkeit eines Pins mit folgendem Befehl setzen:",
+        "fading": "Du kannst auch mein Fading Skript testen",
+        "pins": "Setzte die Pin Nummern der 3 Farben",
+        "start": "Starte mit",
+        "comments": "Wenn du Fragen oder Anmerkungen hast, schreibe einfach einen Kommentar!"
+      }
+    }
+  }
+}

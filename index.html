@@ -1,390 +1,332 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset='utf-8'>
-		<meta http-equiv="X-UA-Compatible" content="chrome=1">
-		<meta name="viewport" content="width=640">
-		<link rel="stylesheet" href="stylesheets/main.css">
-		<link rel="stylesheet" href="stylesheets/core.css" media="screen">
-		<link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
-		<link rel="stylesheet" href="stylesheets/pygment_trac.css">
-		<script type="text/javascript" src="javascripts/modernizr.js"></script>
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-		<script type="text/javascript" src="javascripts/headsmart.min.js"></script>
-		<script type="text/javascript" src="javascripts/jquery.elevateZoom-3.0.8.min.js"></script>
-		<script type="text/javascript">
-			$(document).ready(function () {
-				$('#main_content').headsmart()
-			})
-		</script>
-		<title>How to connect a Raspberry Pi to a RGB LED-Strip</title>
-	</head>
-	<body>
-		<div class="shell">
-			<header>
-				<span class="ribbon-outer">
-					<span class="ribbon-inner">
-						<h1>Raspberry Pi & RGB LED-Strip</h1>
-						<h2>A tutorial how to connect a Raspberry Pi to a RGB LED-Strip</h2>
-					</span>
-					<span class="left-tail"></span>
-					<span class="right-tail"></span>
-				</span>
-			</header>
-			<section id="downloads">
-			</section>
-			<span class="banner-fix"></span>
-			<section id="main_content">
-				<h2>
-					<a name="tutorial-connect-a-raspberry-pi-with-a-led-strip" class="anchor" href="#tutorial-connect-a-raspberry-pi-with-a-led-strip"><span class="octicon octicon-link"></span></a>Tutorial: Connect a Raspberry Pi to a RGB LED-Strip
-				</h2>
-				<p><strong style="color: red">Attention</strong>: I'm not responsible for any damage to your LED-Strip or Raspberry Pi. <strong>Do this at your own risk!</strong></p>
-				<p><strong>Notice</strong>: You can control the zoom depth <strong>by scrolling</strong>.</p>
-				<h3>
-					<a name="what-do-you-need" class="anchor" href="#what-do-you-need"><span class="octicon octicon-link"></span></a>What do you need?
-				</h3>
-				<ul>
-					<li>A RGB LED Strip (with <strong>3 pins for RGB</strong> and <strong>1 pin for 12V DC</strong>)</li>
-					<li>Any breadboard</li>
-					<li>Jumper Wires (Male to Female)</li>
-					<li>Jumper Wires (Male to Male)</li>
-					<li>Three MOSFETs
-						<ul>
-							<li>For example: <strong>IRLZ34N</strong></li>
-						</ul>
-					</li>
-					<li>A Power Adapter (<strong>12V DC ~2A</strong>)</li>
-					<li>An Extra-low voltage connector
-						<ul>
-							<li>Has to fit with the Power Adapter</li>
-							<li>I use one with screws for a easy connecting to the wires</li>
-							<li>If you already have a controller, you can also desolder the Extra-low voltage connector from there and use it</li>
-						</ul>
-					</li>
-					<li>The software <a href="https://github.com/sarfata/pi-blaster" title="pi-blaster"><strong>pi-blaster</strong></a> installed on the Raspberry Pi</li>
-				</ul>
-				<p><img id="overview" src="images/pi/small/overview.jpg" data-zoom-image="images/pi/overview.jpg"/></p>
-				<h3>
-					<a name="1-connect-the-mosfets" class="anchor" href="#1-connect-the-mosfets"><span class="octicon octicon-link"></span></a>1. Connect the MOSFETs
-				</h3>
-				<ul>
-					<li>If you look <strong>at the front</strong> of the MOSFETs:
-						<ul>
-							<li>The first pin from left is the <strong>Gate</strong></li>
-							<li>The second one the <strong>Drain</strong></li>
-							<li>The third one the <strong>Source</strong></li>
-						</ul>
-					</li>
-					<li>Just put the three MOSFETs onto the breadboard</li>
-					<li>Connect the Source pins to the ground bus of the breadboard </li>
-				</ul>
-				<p>
-					<img id="mosfet1" src="images/pi/small/mosfet.jpg" data-zoom-image="images/pi/mosfet.jpg"/>
-					<div id="mosfet_gal">
-						<a href="#" data-image="images/pi/small/mosfet.jpg" data-zoom-image="images/pi/mosfet.jpg">
-							<img id="mosfet1" src="images/pi/thumb/mosfet.jpg" />
-						</a>
-						<a href="#" data-image="images/pi/small/mosfets_1.jpg" data-zoom-image="images/pi/mosfets_1.jpg">
-							<img id="mosfet2" src="images/pi/thumb/mosfets_1.jpg" />
-						</a>
-						<a href="#" data-image="images/pi/small/mosfets_2.jpg" data-zoom-image="images/pi/mosfets_2.jpg">
-							<img id="mosfet3" src="images/pi/thumb/mosfets_2.jpg" />
-						</a>
-					</div>
-				</p>
-				<h3>
-					<a name="2-connect-the-led-strip" class="anchor" href="#2-connect-the-led-strip"><span class="octicon octicon-link"></span></a>2. Connect the LED-Strip
-				</h3>
-				<ul>
-					<li>Connect for each color the <strong>Drain</strong> pin to the associated color of the LED-Strip</li>
-					<li>Put a wire from the 12V pin of the LED-Strip to the supply voltage bus of the breadboard</li>
-				</ul>
-				<p>
-					<img id="led1" src="images/pi/small/led_1.jpg" data-zoom-image="images/pi/led_1.jpg"/>
-					<div id="led_gal">
-						<a href="#" data-image="images/pi/small/led_1.jpg" data-zoom-image="images/pi/led_1.jpg">
-							<img id="led1" src="images/pi/thumb/led_1.jpg" />
-						</a>
-						<a href="#" data-image="images/pi/small/led_2.jpg" data-zoom-image="images/pi/led_2.jpg">
-							<img id="led2" src="images/pi/thumb/led_2.jpg" />
-						</a>
-						<a href="#" data-image="images/pi/small/led_3.jpg" data-zoom-image="images/pi/led_3.jpg">
-							<img id="led3" src="images/pi/thumb/led_3.jpg" />
-						</a>
-					</div>
-				</p>
-				<h3>
-					<a name="3-connect-the-raspberry-pi" class="anchor" href="#3-connect-the-raspberry-pi"><span class="octicon octicon-link"></span></a>3. Connect the Raspberry Pi
-				</h3>
-				<p><h4>GPIO Pins of the Raspberry Pi:</h4><img id="gpio" src="images/pi/small/Raspberry_GPIO_Pins.png" data-zoom-image="images/pi/Raspberry_GPIO_Pins.png"/> Image source <a href="http://raspberrypi-spy.co.uk" title="Image Source">raspberrypi-spy.co.uk</a></p>
-				<ul>
-					<li>Connect one of the ground pins to the ground bus of the breadboard</li>
-					<li>Connect for each color one of the green pins to the <strong>Gate</strong> of the MOSFETs
-						<ul>
-							<li>I will use: 
-								<ul>
-									<li><strong>GPIO17</strong> for Red</li>
-									<li><strong>GPIO22</strong> for Green</li>
-									<li><strong>GPIO24</strong> for Blue</li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				<p>
-					<img id="pi1" src="images/pi/small/pi_1.jpg" data-zoom-image="images/pi/pi_1.jpg"/>
-					<div id="pi_gal">
-						<a href="#" data-image="images/pi/small/pi_1.jpg" data-zoom-image="images/pi/pi_1.jpg">
-							<img id="pi1" src="images/pi/thumb/pi_1.jpg" />
-						</a>
-						<a href="#" data-image="images/pi/small/pi_2.jpg" data-zoom-image="images/pi/pi_2.jpg">
-							<img id="pi2" src="images/pi/thumb/pi_2.jpg" />
-						</a>
-						<a href="#" data-image="images/pi/small/pi_3.jpg" data-zoom-image="images/pi/pi_3.jpg">
-							<img id="pi3" src="images/pi/thumb/pi_3.jpg" />
-						</a>
-					</div>
-				</p>
-				<h3>
-					<a name="4-connect-the-extra-low-voltage-connector" class="anchor" href="#4-connect-the-extra-low-voltage-connector"><span class="octicon octicon-link"></span></a>4. Connect the Extra-low voltage connector
-				</h3>
-				<ul>
-					<li>If you have one with Screws:
-						<ul>
-							<li>Fasten one wire with the ground and one withe the voltage part in place</li>
-						</ul>
-					</li>
-					<li>Connect the ground wire to the ground bus of the breadboard</li>
-					<li>Connect the voltage wire to the voltage bus of the breadboard</li>
-					<li>Connect the Power Adapter with the Extra-low voltage connector</li>
-					<li>Plug in the Power Adapter</li>
-				</ul>
-				<p>
-					<img id="power1" src="images/pi/small/power_1.jpg" data-zoom-image="images/pi/power_1.jpg"/>
-					<div id="power_gal">
-						<a href="#" data-image="images/pi/small/power_1.jpg" data-zoom-image="images/pi/power_1.jpg">
-							<img id="power1" src="images/pi/thumb/power_1.jpg" />
-						</a>
-						<a href="#" data-image="images/pi/small/power_2.jpg" data-zoom-image="images/pi/power_2.jpg">
-							<img id="power2" src="images/pi/thumb/power_2.jpg" />
-						</a>
-						<a href="#" data-image="images/pi/small/power_3.jpg" data-zoom-image="images/pi/power_3.jpg">
-							<img id="power3" src="images/pi/thumb/power_3.jpg" />
-						</a>
-					</div>
-				</p>
-				<h3>
-					<a name="5-finish" class="anchor" href="#5-finish"><span class="octicon octicon-link"></span></a>5. Finish
-				</h3>
-				<ul>
-					<li>Here are images of the finish system</li>
-				</ul>
-				<p>
-					<img id="finish1" src="images/pi/small/finish_1.jpg" data-zoom-image="images/pi/finish_1.jpg"/>
-					<div id="finish_gal">
-						<a href="#" data-image="images/pi/small/finish_1.jpg" data-zoom-image="images/pi/finish_1.jpg">
-							<img id="finish1" src="images/pi/thumb/finish_1.jpg" />
-						</a>
-						<a href="#" data-image="images/pi/small/finish_2.jpg" data-zoom-image="images/pi/finish_2.jpg">
-							<img id="finish2" src="images/pi/thumb/finish_2.jpg" />
-						</a>
-						<a href="#" data-image="images/pi/small/finish_3.jpg" data-zoom-image="images/pi/finish_3.jpg">
-							<img id="finish3" src="images/pi/thumb/finish_3.jpg" />
-						</a>
-					</div>
-				</p>
-				<h3>
-					<a name="6-testing" class="anchor" href="#6-testing"><span class="octicon octicon-link"></span></a>6. Testing
-				</h3>
-				<ul>
-					<li>Connect to the Raspberry Pi via SSH or open a terminal</li>
-					<li>Type into the console:
-						<ul>
-							<li><code>echo "17=1" &gt; /dev/pi-blaster</code> and the LED should be red</li>
-							<li><code>echo "22=0.5" &gt; /dev/pi-blaster</code> and the LED should be yellow</li>
-							<li><code>echo "24=0.5" &gt; /dev/pi-blaster</code> and the LED should be purple</li>
-						</ul>
-					</li>
-				</ul>
-				<p>
-					<img id="finish_color1" src="images/pi/small/finish_red.jpg" data-zoom-image="images/pi/finish_red.jpg"/>
-					<div id="finish_color_gal">
-						<a href="#" data-image="images/pi/small/finish_red.jpg" data-zoom-image="images/pi/finish_red.jpg">
-							<img id="finish_color1" src="images/pi/thumb/finish_red.jpg" />
-						</a>
-						<a href="#" data-image="images/pi/small/finish_yellow.jpg" data-zoom-image="images/pi/finish_yellow.jpg">
-							<img id="finish_color2" src="images/pi/thumb/finish_yellow.jpg" />
-						</a>
-						<a href="#" data-image="images/pi/small/finish_pink.jpg" data-zoom-image="images/pi/finish_pink.jpg">
-							<img id="finish_color3" src="images/pi/thumb/finish_pink.jpg" />
-						</a>
-					</div>
-				</p>
-				<h3>
-					<a name="what-now" class="anchor" href="#what-now"><span class="octicon octicon-link"></span></a>What next?
-				</h3>
-				<ul>
-					<li>Now you can do everything with the LED-Strip
-						<ul>
-							<li>For example you can use Python to control the LED-Strip</li>
-							<li>You can set the brightness of a pin with:
-								<ul>
-									<li><code>os.system("echo PIN=BRIGHTNESS &gt; /dev/pi-blaster")</code></li>
-								</ul>
-							</li>
-							<li>You can also try my fading script: <a href="https://github.com/popoklopsi/RaspberryPi-LedStrip/blob/master/fading.py" title="Python Fading">fading.py</a>
-								<ul>
-									<li>Set the pin numbers of the 3 colors</li>
-									<li>Start with: <code>python fading.py</code></li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-					<li>If you have questions, feel free to leave a comment!</li>
-				</ul>
-			</section>
-			<footer>
-				<span class="ribbon-outer">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640">
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <title>How to connect a Raspberry Pi to a RGB LED-Strip</title>
+</head>
+
+<body>
+    <div class="shell" id="pitut">
+        <header>
+            <span class="ribbon-outer">
+                <span class="ribbon-inner">
+                    <h1 data-i18n="pitut.header.title"></h1>
+                    <h2 data-i18n="pitut.header.subtitle"></h2>
+                </span>
+            <span class="left-tail"></span>
+            <span class="right-tail"></span>
+            </span>
+        </header>
+        <section id="downloads"></section>
+        <span class="banner-fix"></span>
+        <section id="main_content">
+            <h2>
+            <a name="tutorial-connect-a-raspberry-pi-with-a-led-strip" class="anchor"
+               href="#tutorial-connect-a-raspberry-pi-with-a-led-strip"><span class="octicon octicon-link"></span></a>
+
+            <p data-i18n="pitut.main.intro.title">
+
+            </p>
+            <span>
+                <img id="german"
+                     style="margin-left: 4px; float:right; border: none; box-shadow: none; cursor: pointer"
+                     src="images/de.png" alt="German"/>
+            <img id="english" style="float:right; border: none; box-shadow: none; cursor: pointer" src="images/en.png"
+                 alt="English"/>
+            </span>
+        </h2>
+
+            <p><strong style="color: red" data-i18n="pitut.main.intro.attention"></strong>: <span data-i18n="pitut.main.intro.responsible"></span> <strong data-i18n="pitut.main.intro.ownrisk"></strong>
+            </p>
+
+            <p>
+                <span data-i18n="pitut.main.intro.zoom"></span>
+                <strong data-i18n="pitut.main.intro.zoomscroll"></strong>
+            </p>
+
+            <h3>
+            <a name="what-do-you-need" class="anchor" href="#what-do-you-need"><span
+                    class="octicon octicon-link"></span></a>
+            <span data-i18n="pitut.main.intro.need"></span>
+        </h3>
+            <ul>
+                <li><span data-i18n="pitut.main.intro.rgbled"></span> (<strong data-i18n="pitut.main.intro.rgbledinfo"></strong>)
+                </li>
+                <li data-i18n="pitut.main.intro.breadboard"></li>
+                <li data-i18n="pitut.main.intro.jumpmatofe"></li>
+                <li data-i18n="pitut.main.intro.jumpmatoma"></li>
+                <li><span data-i18n="pitut.main.intro.threemosfets"></span>
+                    <ul>
+                        <li><span data-i18n="pitut.main.intro.forexample"></span>: <strong>IRLZ34N</strong>
+                        </li>
+                    </ul>
+                </li>
+                <li><span data-i18n="pitut.main.intro.poweradapter"></span> (<strong>12V DC ~2A</strong>)</li>
+                <li><span data-i18n="pitut.main.intro.extralow"></span>
+                    <ul>
+                        <li data-i18n="pitut.main.intro.fitto"></li>
+                        <li data-i18n="pitut.main.intro.withwires"></li>
+                    </ul>
+                </li>
+                <li><span data-i18n="pitut.main.intro.software"></span> <a href="https://github.com/sarfata/pi-blaster" title="pi-blaster"><strong>pi-blaster</strong></a>
+                    <span data-i18n="pitut.main.intro.installed"></span>
+                </li>
+            </ul>
+            <p><img id="overview" src="images/pi/small/overview.jpg" data-zoom-image="images/pi/overview.jpg" />
+            </p>
+
+            <h3>
+            <a name="1-connect-the-mosfets" class="anchor" href="#1-connect-the-mosfets"><span
+                    class="octicon octicon-link"></span></a><span data-i18n="pitut.main.mosfet.connect"></span>
+        </h3>
+            <ul>
+                <li><span data-i18n="pitut.main.mosfet.look"></span> <strong data-i18n="pitut.main.mosfet.front"></strong>
+                    <span data-i18n="pitut.main.mosfet.ofmosfet"></span>:
+                    <ul>
+                        <li><span data-i18n="pitut.main.mosfet.firstpin"></span> <strong>Gate</strong>
+                        </li>
+                        <li><span data-i18n="pitut.main.mosfet.secondpin"></span> <strong>Drain</strong>
+                        </li>
+                        <li><span data-i18n="pitut.main.mosfet.thirdpin"></span> <strong>Source</strong>
+                        </li>
+                    </ul>
+                </li>
+                <li data-i18n="pitut.main.mosfet.ontobreadboard"></li>
+                <li data-i18n="pitut.main.mosfet.toground"></li>
+            </ul>
+            <p>
+                <img id="mosfet" src="images/pi/small/mosfet.jpg" data-zoom-image="images/pi/mosfet.jpg" />
+
+                <div id="mosfet_gal">
+                    <a href="#" data-image="images/pi/small/mosfet.jpg" data-zoom-image="images/pi/mosfet.jpg">
+                        <img id="mosfet1" src="images/pi/thumb/mosfet.jpg" />
+                    </a>
+                    <a href="#" data-image="images/pi/small/mosfets_1.jpg" data-zoom-image="images/pi/mosfets_1.jpg">
+                        <img id="mosfet2" src="images/pi/thumb/mosfets_1.jpg" />
+                    </a>
+                    <a href="#" data-image="images/pi/small/mosfets_2.jpg" data-zoom-image="images/pi/mosfets_2.jpg">
+                        <img id="mosfet3" src="images/pi/thumb/mosfets_2.jpg" />
+                    </a>
+                </div>
+            </p>
+            <h3>
+            <a name="2-connect-the-led-strip" class="anchor" href="#2-connect-the-led-strip"><span
+                    class="octicon octicon-link"></span></a><span data-i18n="pitut.main.strip.connect"></span>
+        </h3>
+            <ul>
+                <li><span data-i18n="pitut.main.strip.connectcolor"></span> <strong>Drain</strong> <span data-i18n="pitut.main.strip.connectass"></span>
+                </li>
+                <li data-i18n="pitut.main.strip.supply"></li>
+            </ul>
+            <p>
+                <img id="led" src="images/pi/small/led_1.jpg" data-zoom-image="images/pi/led_1.jpg" />
+
+                <div id="led_gal">
+                    <a href="#" data-image="images/pi/small/led_1.jpg" data-zoom-image="images/pi/led_1.jpg">
+                        <img id="led1" src="images/pi/thumb/led_1.jpg" />
+                    </a>
+                    <a href="#" data-image="images/pi/small/led_2.jpg" data-zoom-image="images/pi/led_2.jpg">
+                        <img id="led2" src="images/pi/thumb/led_2.jpg" />
+                    </a>
+                    <a href="#" data-image="images/pi/small/led_3.jpg" data-zoom-image="images/pi/led_3.jpg">
+                        <img id="led3" src="images/pi/thumb/led_3.jpg" />
+                    </a>
+                </div>
+            </p>
+            <h3>
+            <a name="3-connect-the-raspberry-pi" class="anchor" href="#3-connect-the-raspberry-pi"><span
+                    class="octicon octicon-link"></span></a><span data-i18n="pitut.main.pi.connect"></span>
+        </h3>
+
+            <p>
+                <h4 data-i18n="pitut.main.pi.pins"></h4><img id="gpio" src="images/pi/small/Raspberry_GPIO_Pins.png" data-zoom-image="images/pi/Raspberry_GPIO_Pins.png" /> Image source
+                <a href="http://raspberrypi-spy.co.uk" title="Image Source">raspberrypi-spy.co.uk</a>
+            </p>
+            <ul>
+                <li data-i18n="pitut.main.pi.breadboard"></li>
+                <li><span data-i18n="pitut.main.pi.connectcolor"></span> <strong>Gate</strong> <span data-i18n="pitut.main.pi.ofmosfets"></span>
+                    <ul>
+                        <li><span data-i18n="pitut.main.pi.iuse"></span>:
+                            <ul>
+                                <li><strong>GPIO17</strong> <span data-i18n="pitut.main.pi.forred"></span>
+                                </li>
+                                <li><strong>GPIO22</strong> <span data-i18n="pitut.main.pi.forgreen"></span>
+                                </li>
+                                <li><strong>GPIO24</strong> <span data-i18n="pitut.main.pi.forblue"></span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <p>
+                <img id="pi" src="images/pi/small/pi_1.jpg" data-zoom-image="images/pi/pi_1.jpg" />
+
+                <div id="pi_gal">
+                    <a href="#" data-image="images/pi/small/pi_1.jpg" data-zoom-image="images/pi/pi_1.jpg">
+                        <img id="pi1" src="images/pi/thumb/pi_1.jpg" />
+                    </a>
+                    <a href="#" data-image="images/pi/small/pi_2.jpg" data-zoom-image="images/pi/pi_2.jpg">
+                        <img id="pi2" src="images/pi/thumb/pi_2.jpg" />
+                    </a>
+                    <a href="#" data-image="images/pi/small/pi_3.jpg" data-zoom-image="images/pi/pi_3.jpg">
+                        <img id="pi3" src="images/pi/thumb/pi_3.jpg" />
+                    </a>
+                </div>
+            </p>
+            <h3>
+            <a name="4-connect-the-extra-low-voltage-connector" class="anchor"
+               href="#4-connect-the-extra-low-voltage-connector"><span class="octicon octicon-link"></span></a>
+            <span data-i18n="pitut.main.extralow.connect"></span>
+        </h3>
+            <ul>
+                <li><span data-i18n="pitut.main.extralow.screws"></span>
+                    <ul>
+                        <li data-i18n="pitut.main.extralow.fasten"></li>
+                    </ul>
+                </li>
+                <li data-i18n="pitut.main.extralow.ground"></li>
+                <li data-i18n="pitut.main.extralow.voltage"></li>
+                <li data-i18n="pitut.main.extralow.power"></li>
+                <li data-i18n="pitut.main.extralow.plugin"></li>
+            </ul>
+            <p>
+                <img id="power" src="images/pi/small/power_1.jpg" data-zoom-image="images/pi/power_1.jpg" />
+
+                <div id="power_gal">
+                    <a href="#" data-image="images/pi/small/power_1.jpg" data-zoom-image="images/pi/power_1.jpg">
+                        <img id="power1" src="images/pi/thumb/power_1.jpg" />
+                    </a>
+                    <a href="#" data-image="images/pi/small/power_2.jpg" data-zoom-image="images/pi/power_2.jpg">
+                        <img id="power2" src="images/pi/thumb/power_2.jpg" />
+                    </a>
+                    <a href="#" data-image="images/pi/small/power_3.jpg" data-zoom-image="images/pi/power_3.jpg">
+                        <img id="power3" src="images/pi/thumb/power_3.jpg" />
+                    </a>
+                </div>
+            </p>
+            <h3>
+            <a name="5-finish" class="anchor" href="#5-finish"><span class="octicon octicon-link"></span></a>
+            <span data-i18n="pitut.main.finish.title"></span>
+        </h3>
+            <ul>
+                <li data-i18n="pitut.main.finish.images"></li>
+            </ul>
+            <p>
+                <img id="finish" src="images/pi/small/finish_1.jpg" data-zoom-image="images/pi/finish_1.jpg" />
+
+                <div id="finish_gal">
+                    <a href="#" data-image="images/pi/small/finish_1.jpg" data-zoom-image="images/pi/finish_1.jpg">
+                        <img id="finish1" src="images/pi/thumb/finish_1.jpg" />
+                    </a>
+                    <a href="#" data-image="images/pi/small/finish_2.jpg" data-zoom-image="images/pi/finish_2.jpg">
+                        <img id="finish2" src="images/pi/thumb/finish_2.jpg" />
+                    </a>
+                    <a href="#" data-image="images/pi/small/finish_3.jpg" data-zoom-image="images/pi/finish_3.jpg">
+                        <img id="finish3" src="images/pi/thumb/finish_3.jpg" />
+                    </a>
+                </div>
+            </p>
+            <h3>
+            <a name="6-testing" class="anchor" href="#6-testing"><span class="octicon octicon-link"></span></a>
+            <span data-i18n="pitut.main.testing.title"></span>
+        </h3>
+            <ul>
+                <li data-i18n="pitut.main.testing.connect"></li>
+                <li><span data-i18n="pitut.main.testing.type"></span>
+                    <ul>
+                        <li><code>echo "17=1" &gt; /dev/pi-blaster</code> <span data-i18n="pitut.main.testing.red"></span>
+                        </li>
+                        <li><code>echo "22=0.5" &gt; /dev/pi-blaster</code> <span data-i18n="pitut.main.testing.yellow"></span>
+                        </li>
+                        <li><code>echo "24=0.5" &gt; /dev/pi-blaster</code> <span data-i18n="pitut.main.testing.purple"></span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <p>
+                <img id="finish_color" src="images/pi/small/finish_red.jpg" data-zoom-image="images/pi/finish_red.jpg" />
+
+                <div id="finish_color_gal">
+                    <a href="#" data-image="images/pi/small/finish_red.jpg" data-zoom-image="images/pi/finish_red.jpg">
+                        <img id="finish_color1" src="images/pi/thumb/finish_red.jpg" />
+                    </a>
+                    <a href="#" data-image="images/pi/small/finish_yellow.jpg" data-zoom-image="images/pi/finish_yellow.jpg">
+                        <img id="finish_color2" src="images/pi/thumb/finish_yellow.jpg" />
+                    </a>
+                    <a href="#" data-image="images/pi/small/finish_pink.jpg" data-zoom-image="images/pi/finish_pink.jpg">
+                        <img id="finish_color3" src="images/pi/thumb/finish_pink.jpg" />
+                    </a>
+                </div>
+            </p>
+            <h3>
+            <a name="what-now" class="anchor" href="#what-now"><span class="octicon octicon-link"></span></a>
+            <span data-i18n="pitut.main.next.title"></span>
+        </h3>
+            <ul>
+                <li><span data-i18n="pitut.main.next.doeverything"></span>
+                    <ul>
+                        <li data-i18n="pitut.main.next.python"></li>
+                        <li><span data-i18n="pitut.main.next.brightness"></span>
+                            <ul>
+                                <li><code>os.system("echo PIN=BRIGHTNESS &gt; /dev/pi-blaster")</code>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><span data-i18n="pitut.main.next.fading"></span>: <a href="https://github.com/popoklopsi/RaspberryPi-LedStrip/blob/master/fading.py" title="Python Fading">fading.py</a>
+                            <ul>
+                                <li data-i18n="pitut.main.next.pins"></li>
+                                <li><span data-i18n="pitut.main.next.start"></span>: <code>python fading.py</code>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li data-i18n="pitut.main.next.comments"></li>
+            </ul>
+        </section>
+        <footer>
+            <span class="ribbon-outer">
 					<span class="ribbon-inner">
 						<p>&nbsp;</p>
 					</span>
-					<span class="left-tail"></span>
-					<span class="right-tail"></span>
-				</span>
-				<p>&nbsp;</p>
-				<span class="octocat"></span>
-			</footer>
-			<div class="container container-center">
-				<div id="disqus_thread"> </div>
-				<script type="text/javascript">
-					var disqus_shortname = 'raspberrypiledstrip';
-					(function() {
-						var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-					dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-					})();
-				</script>
-				<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-			</div>
-		</div>
-		<script>
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            <span class="left-tail"></span>
+            <span class="right-tail"></span>
+            </span>
 
-			ga('create', 'UA-54198343-2', 'auto');
-			ga('send', 'pageview');
-		</script>
-		<script>
-			$('#overview').elevateZoom({
-				cursor: "pointer",
-				zoomType: "inner",
-				scrollZoom: true
-			});
-			
-			
-			$('#gpio').elevateZoom({
-				cursor: "pointer",
-				zoomType: "inner",
-				scrollZoom: true
-			});
-			
-			
-			$('#mosfet1').elevateZoom({
-				gallery:'mosfet_gal',
-				galleryActiveClass: 'active',
-				zoomType: "inner",
-				scrollZoom: true, 
-				cursor: "pointer"
-			});
-			
-			$("#mosfet1").bind("click", function(e) {  
-				var ez = $('#mosfet1').data('elevateZoom');
-				$.fancybox(ez.getGalleryList());
-				
-				return false;
-			});
-			
-			
-			$('#led1').elevateZoom({
-				gallery:'led_gal',
-				galleryActiveClass: 'active',
-				zoomType: "inner",
-				scrollZoom: true, 
-				cursor: "pointer"
-			});
-			
-			$("#led1").bind("click", function(e) {  
-				var ez = $('#led1').data('elevateZoom');
-				$.fancybox(ez.getGalleryList());
-				
-				return false;
-			});
-			
-			
-			$('#pi1').elevateZoom({
-				gallery:'pi_gal',
-				galleryActiveClass: 'active',
-				zoomType: "inner",
-				scrollZoom: true, 
-				cursor: "pointer"
-			});
-			
-			$("#pi1").bind("click", function(e) {  
-				var ez = $('#pi1').data('elevateZoom');
-				$.fancybox(ez.getGalleryList());
-				
-				return false;
-			});
-			
-			
-			$('#power1').elevateZoom({
-				gallery:'power_gal',
-				galleryActiveClass: 'active',
-				zoomType: "inner",
-				scrollZoom: true, 
-				cursor: "pointer"
-			});
-			
-			$("#power1").bind("click", function(e) {  
-				var ez = $('#power1').data('elevateZoom');
-				$.fancybox(ez.getGalleryList());
-				
-				return false;
-			});
-			
-			
-			$('#finish1').elevateZoom({
-				gallery:'finish_gal',
-				galleryActiveClass: 'active',
-				zoomType: "inner",
-				scrollZoom: true, 
-				cursor: "pointer"
-			});
-			
-			$("#finish1").bind("click", function(e) {  
-				var ez = $('#finish1').data('elevateZoom');
-				$.fancybox(ez.getGalleryList());
-				
-				return false;
-			});
-			
-			
-			$('#finish_color1').elevateZoom({
-				gallery:'finish_color_gal',
-				galleryActiveClass: 'active',
-				zoomType: "inner",
-				scrollZoom: true, 
-				cursor: "pointer"
-			});
-			
-			$("#finish_color1").bind("click", function(e) {  
-				var ez = $('#finish_color1').data('elevateZoom');
-				$.fancybox(ez.getGalleryList());
-				
-				return false;
-			});
-		</script>
-	</body>
+            <p>&nbsp;</p>
+            <span class="octocat"></span>
+        </footer>
+        <div class="container container-center">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'raspberrypiledstrip';
+                (function() {
+                    var dsq = document.createElement('script');
+                    dsq.type = 'text/javascript';
+                    dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a>
+            </noscript>
+        </div>
+    </div>
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="javascripts/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript" src="javascripts/jquery.elevateZoom-3.0.8.min.js"></script>
+    <script type="text/javascript" src="javascripts/i18next-1.7.4.min.js"></script>
+    <script type="text/javascript" src="javascripts/main.js"></script>
+</body>
+
 </html>
