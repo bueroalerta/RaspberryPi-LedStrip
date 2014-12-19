@@ -11,6 +11,7 @@
 })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
 ga('create', 'UA-54198343-2', 'auto');
+ga('require', 'displayfeatures');
 ga('send', 'pageview');
 
 $(document).ready(function () {
