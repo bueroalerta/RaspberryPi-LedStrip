@@ -9,7 +9,7 @@
  # Web         http://popoklopsi.de
  # -----------------------------------------------------
  # 
- # Copyright (C) 2014-2014 David <popoklopsi> Ordnung
+ # Copyright (C) 2014-2015 David <popoklopsi> Ordnung
  # 
  # This program is free software: you can redistribute it and/or modify
  # it under the terms of the GNU General Public License as published by
@@ -26,17 +26,19 @@
 #
 
 
-
+# This script needs running pigpio (http://abyz.co.uk/rpi/pigpio/)
 
 
 ###### CONFIGURE THIS ######
 
+# The Pins. Use Broadcom numbers.
 RED_PIN   = 17
 GREEN_PIN = 22
 BLUE_PIN  = 24
 
-# Number of color changes per step (more is faster, but with less effect)
-STEPS = 3
+# Number of color changes per step (more is faster, less is slower).
+# You also can use 0.X floats.
+STEPS     = 1
 
 ###### END ######
 
@@ -47,21 +49,20 @@ import os
 import sys
 import termios
 import tty
+import pigpio
 import time
 from thread import start_new_thread
 
+bright = 255
+r = 255.0
+g = 0.0
+b = 0.0
 
-r = 255
-g = 0
-b = 0
-
-factor = 1.0 / 255.0
-bright = 1.0
-realfactor = factor
-
+brightChanged = False
 abort = False
 state = True
 
+pi = pigpio.pi()
 
 def updateColor(color, step):
 	color += step
@@ -74,13 +75,9 @@ def updateColor(color, step):
 	return color
 
 
-def setLights(light, brightness):
-	if light == 0:
-		os.system("echo %i=%f > /dev/pi-blaster" % (RED_PIN, brightness))
-	elif light == 1:
-		os.system("echo %i=%f > /dev/pi-blaster" % (GREEN_PIN, brightness))
-	elif light == 2:
-		os.system("echo %i=%f > /dev/pi-blaster" % (BLUE_PIN, brightness))
+def setLights(pin, brightness):
+	realBrightness = int(int(brightness) * (float(bright) / 255.0))
+	pi.set_PWM_dutycycle(pin, realBrightness)
 
 
 def getCh():
@@ -97,83 +94,93 @@ def getCh():
 
 
 def checkKey():
-	global realfactor
 	global bright
+	global brightChanged
 	global state
 	global abort
 	
 	while True:
 		c = getCh()
 		
-		if c == '+':
-			bright = bright + 0.05
-			realfactor = factor * bright
+		if c == '+' and bright < 255 and not brightChanged:
+			brightChanged = True
+			time.sleep(0.01)
+			brightChanged = False
 			
-			print "Current brightness: %.2f" % bright
+			bright = bright + 1
+			print ("Current brightness: %d" % bright)
 			
-		if c == '-' and bright > 0.05:
-			bright = bright - 0.05
-			realfactor = factor * bright
+		if c == '-' and bright > 0 and not brightChanged:
+			brightChanged = True
+			time.sleep(0.01)
+			brightChanged = False
 			
-			print "Current brightness: %.2f" % bright
+			bright = bright - 1
+			print ("Current brightness: %d" % bright)
 			
-		if c == 'p':
+		if c == 'p' and state:
 			state = False
-			print "Pausing..."
+			print ("Pausing...")
 			
 			time.sleep(0.1)
 			
-			for x in range(3):
-				setLights(x, 0.0)
+			setLights(RED_PIN, 0)
+			setLights(GREEN_PIN, 0)
+			setLights(BLUE_PIN, 0)
 			
-		if c == 'r':
+		if c == 'r' and not state:
 			state = True
-			print "Resuming..."
+			print ("Resuming...")
 			
-		if c == 'c':
+		if c == 'c' and not abort:
 			abort = True
 			break
 
 start_new_thread(checkKey, ())
 
 
-print "+ / - = Increase / Decrease brightness"
-print "p / r = Pause / Resume"
-print "c = Abort Program"
+print ("+ / - = Increase / Decrease brightness")
+print ("p / r = Pause / Resume")
+print ("c = Abort Program")
 
 
-setLights(0, realfactor * float(r))
-setLights(1, realfactor * float(g))
-setLights(2, realfactor * float(b))
+setLights(RED_PIN, r)
+setLights(GREEN_PIN, g)
+setLights(BLUE_PIN, b)
 
 
 while abort == False:
-	if state:
+	if state and not brightChanged:
 		if r == 255 and b == 0 and g < 255:
 			g = updateColor(g, STEPS)
-			setLights(1, realfactor * float(g))
+			setLights(GREEN_PIN, g)
 		
 		elif g == 255 and b == 0 and r > 0:
 			r = updateColor(r, -STEPS)
-			setLights(0, realfactor * float(r))
+			setLights(RED_PIN, r)
 		
 		elif r == 0 and g == 255 and b < 255:
 			b = updateColor(b, STEPS)
-			setLights(2, realfactor * float(b))
+			setLights(BLUE_PIN, b)
 		
 		elif r == 0 and b == 255 and g > 0:
 			g = updateColor(g, -STEPS)
-			setLights(1, realfactor * float(g))
+			setLights(GREEN_PIN, g)
 		
 		elif g == 0 and b == 255 and r < 255:
 			r = updateColor(r, STEPS)
-			setLights(0, realfactor * float(r))
+			setLights(RED_PIN, r)
 		
 		elif r == 255 and g == 0 and b > 0:
 			b = updateColor(b, -STEPS)
-			setLights(2, realfactor * float(b))
+			setLights(BLUE_PIN, b)
 	
-print "Aborting..."
+print ("Aborting...")
 
-for x in range(3):
-	setLights(x, 0.0)
+setLights(RED_PIN, 0)
+setLights(GREEN_PIN, 0)
+setLights(BLUE_PIN, 0)
+
+time.sleep(0.5)
+
+pi.stop()
