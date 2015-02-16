@@ -70,6 +70,7 @@
       },
       "testing": {
         "title": "6. Testing",
+        "start": "To start PiGPIO",
         "connect": "Connect to the Raspberry Pi via SSH or open a terminal",
         "type": "Type into the console:",
         "red": "and the LEDs should be red",

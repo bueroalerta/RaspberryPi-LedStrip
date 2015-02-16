@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=640">
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
-    <meta name="keywords" content="Raspberry Pi RGB-Strip pi-blaster ServoBlaster LED-Strip LED Strip RGB Python LED-Strip Light Color">
+    <meta name="keywords" content="Raspberry Pi RGB-Strip pi-blaster pigpio pi2 B+ B ServoBlaster LED-Strip LED Strip RGB Python LED-Strip Light Color">
     <meta name="description" content="A Tutorial how to connect a Raspberry Pi to a RGB LED Strip">
     <meta name="robots" content="index, follow">
     <link rel="stylesheet" href="stylesheets/main.css">
@@ -80,8 +80,8 @@
                     <li data-i18n="pitut.main.intro.withwires"></li>
                 </ul>
             </li>
-            <li><span data-i18n="pitut.main.intro.software"></span> <a href="https://github.com/sarfata/pi-blaster"
-                                                                       title="pi-blaster"><strong>pi-blaster</strong></a>
+            <li><span data-i18n="pitut.main.intro.software"></span> <a href="http://abyz.co.uk/rpi/pigpio/"
+                                                                       title="pigpio"><strong>pigpio</strong></a>
                 <span data-i18n="pitut.main.intro.installed"></span>
             </li>
         </ul>
@@ -251,12 +251,12 @@
             <li data-i18n="pitut.main.testing.connect"></li>
             <li><span data-i18n="pitut.main.testing.type"></span>
                 <ul>
-                    <li><code>echo "17=1" &gt; /dev/pi-blaster</code> <span data-i18n="pitut.main.testing.red"></span>
-                    </li>
-                    <li><code>echo "22=0.5" &gt; /dev/pi-blaster</code> <span
+                    <li><code>sudo pigpiod</code> <span data-i18n="pitut.main.testing.start"></span></li>
+                    <li><code>pigs p 17 255</code> <span data-i18n="pitut.main.testing.red"></span></li>
+                    <li><code>pigs p 22 128</code> <span
                             data-i18n="pitut.main.testing.yellow"></span>
                     </li>
-                    <li><code>echo "24=0.5" &gt; /dev/pi-blaster</code> <span
+                    <li><code>pigs p 24 128</code> <span
                             data-i18n="pitut.main.testing.purple"></span>
                     </li>
                 </ul>
@@ -287,8 +287,9 @@
                     <li data-i18n="pitut.main.next.python"></li>
                     <li><span data-i18n="pitut.main.next.brightness"></span>
                         <ul>
-                            <li><code>os.system("echo PIN=BRIGHTNESS &gt; /dev/pi-blaster")</code>
-                            </li>
+                            <li><code>pi = pigpio.pi()</code></li>
+                            <li><code>pi.set_PWM_dutycycle(PIN, BRIGHTNESS)</code></li>
+                            <li><code>pi.stop()</code></li>
                         </ul>
                     </li>
                     <li><span data-i18n="pitut.main.next.fading"></span>: <a
