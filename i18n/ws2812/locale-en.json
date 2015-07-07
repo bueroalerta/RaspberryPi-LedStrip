@@ -15,7 +15,7 @@
       "breadboard": "A breadboard",
       "jumpmatofe": "Jumper wires (Male to Female)",
       "jumpmatoma": "Jumper wires (Male to Male)",
-      "shifter": "A level shifter to convert the 3.3V to 5V (e.g <strong>74HCT125P</strong>)",
+      "shifter": "A level shifter to convert the 3.3V to 5V (e.g <strong>74HCT125P</strong> or <strong>74HCT125</strong>)",
       "powersupply": "A power supply with enough power (<strong>5V DC ~4A</strong>)",
       "powerone": "One LED can consume up to 60mA ",
       "powerall": "So for example 60 LEDs need 3600mA",

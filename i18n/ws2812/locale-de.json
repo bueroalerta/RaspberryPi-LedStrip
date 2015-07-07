@@ -15,7 +15,7 @@
       "breadboard": "Ein Steckbrett",
       "jumpmatofe": "Steckbrücken (Male zu Female)",
       "jumpmatoma": "Steckbrücken (Male zu Male)",
-      "shifter": "Ein Level Shifter, um die 3.3V in 5V umzuwandeln (z.B <strong>74HCT125P</strong>)",
+      "shifter": "Ein Level Shifter, um die 3.3V in 5V umzuwandeln (z.B <strong>74HCT125P</strong> oder <strong>74HCT125</strong>)",
       "powersupply": "Ein Netzteil mit genügend Power (<strong>5V DC ~4A</strong>)",
       "powerone": "Eine LED kann bis zu 60mA verbrauchen",
       "powerall": "Bei z.B 60 LEDs wären das 3600mA",
