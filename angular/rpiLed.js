@@ -20,6 +20,7 @@
     angular.module("rpiLed", ["ngCookies", "ui.router", "ngTouch", "pascalprecht.translate"]).config(["$translateProvider", "$stateProvider", "$urlRouterProvider", function ($translateProvider, $stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise("/");
 
+        $translateProvider.useSanitizeValueStrategy("escaped");
         $translateProvider.preferredLanguage("en");
         $translateProvider.fallbackLanguage("de");
         $translateProvider.useLocalStorage();
@@ -39,9 +40,37 @@
                 url: "/",
                 templateUrl: "angular/page/rgb.tpl.html"
             })
+            .state("rgbDE", {
+                url: "/de",
+                templateUrl: "angular/page/rgb.tpl.html",
+                controller: function($scope, $translate) {
+                    $translate.use("de");
+                }
+            })
+            .state("rgbEN", {
+                url: "/en",
+                templateUrl: "angular/page/rgb.tpl.html",
+                controller: function($scope, $translate) {
+                    $translate.use("en");
+                }
+            })
             .state("ws2812", {
                 url: "/ws2812",
                 templateUrl: "angular/page/ws2812.tpl.html"
+            })
+            .state("ws2812DE", {
+                url: "/ws2812/de",
+                templateUrl: "angular/page/ws2812.tpl.html",
+                controller: function($scope, $translate) {
+                    $translate.use("de");
+                }
+            })
+            .state("ws2812EN", {
+                url: "/ws2812/en",
+                templateUrl: "angular/page/ws2812.tpl.html",
+                controller: function($scope, $translate) {
+                    $translate.use("en");
+                }
             });
     }]);
 })();
