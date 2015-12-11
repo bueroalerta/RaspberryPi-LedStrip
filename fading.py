@@ -4,12 +4,12 @@
 #
  # -----------------------------------------------------
  # File        fading.py
- # Authors     David <popoklopsi> Ordnung
+ # Authors     Popoklopsi
  # License     GPLv3
  # Web         http://popoklopsi.de
  # -----------------------------------------------------
  # 
- # Copyright (C) 2014-2015 David <popoklopsi> Ordnung
+ # Copyright (C) 2014-2015 Popoklopsi
  # 
  # This program is free software: you can redistribute it and/or modify
  # it under the terms of the GNU General Public License as published by
