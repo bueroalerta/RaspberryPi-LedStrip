@@ -22,7 +22,7 @@
       "powerjack": "Eine Niedervolt Buchse",
       "fitto": "Muss zum Netzteil Stecker passen",
       "withwires": "Ich verwende eine mit Schrauben, damit ich es leichter verbinden kann",
-      "software": "Die <a href=\"https://github.com/richardghirst/rpi_ws281x\" title=\"WS2812X Bibliothek\" target=\"_blank\"><strong>WS281X Bibliothek</strong></a> auf dem Raspberry Pi installiert",
+      "software": "Die <a href=\"https://github.com/jgarff/rpi_ws281x\" title=\"WS2812X Bibliothek\" target=\"_blank\"><strong>WS281X Bibliothek</strong></a> auf dem Raspberry Pi installiert",
       "download": "Downloade die Bibliothek oder klone sie mit <code>git clone https://github.com/richardghirst/rpi_ws281x</code> und wechsel ins Verzeichnis",
       "scons": "Installiere <strong>Scons</strong> mit dem Befehl <code>sudo apt-get install scons</code>",
       "install": "Compiliere die Bibliothek mit <code>sudo scons</code>",

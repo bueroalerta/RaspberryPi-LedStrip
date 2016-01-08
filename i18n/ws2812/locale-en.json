@@ -22,7 +22,7 @@
       "powerjack": "A power jack",
       "fitto": "Has to fit with the power supply",
       "withwires": "I use one with screws so I can connect the wires easier",
-      "software": "The <a href=\"https://github.com/richardghirst/rpi_ws281x\" title=\"WS2812X Library\" target=\"_blank\"><strong>WS281X Library</strong></a> installed on the Raspberry Pi",
+      "software": "The <a href=\"https://github.com/jgarff/rpi_ws281x\" title=\"WS2812X Library\" target=\"_blank\"><strong>WS281X Library</strong></a> installed on the Raspberry Pi",
       "download": "Download the library or clone it via <code>git clone https://github.com/richardghirst/rpi_ws281x</code> and change to the directory",
       "scons": "Install <strong>Scons</strong> with the command <code>sudo apt-get install scons</code>",
       "install": "Compile the library with <code>sudo scons</code>",
