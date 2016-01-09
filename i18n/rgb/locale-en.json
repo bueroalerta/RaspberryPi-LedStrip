@@ -16,6 +16,7 @@
       "jumpmatofe": "Jumper wires (Male to Female)",
       "jumpmatoma": "Jumper wires (Male to Male)",
       "threemosfets": "Three MOSFET's (e.g <strong>IRLZ34N</strong>)",
+      "mosfetsinfo": "Important is a threshold voltage of max. 3.3V (Mostly marked by an 'L' in the name)",
       "powersupply": "A power supply (<strong>12V DC ~2A</strong>)",
       "powerjack": "A power jack",
       "fitto": "Has to fit with the power supply",

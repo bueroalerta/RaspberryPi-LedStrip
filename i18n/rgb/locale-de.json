@@ -16,6 +16,7 @@
       "jumpmatofe": "Steckbrücken (Male zu Female)",
       "jumpmatoma": "Steckbrücken (Male zu Male)",
       "threemosfets": "Drei MOSFET's (z.B <strong>IRLZ34N</strong>)",
+      "mosfetsinfo": "Wichtig ist eine Schwellspannung von max. 3.3V (Meistens durch ein 'L' im Namen gekennzeichnet)",
       "powersupply": "Ein Netzteil (<strong>12V DC ~2A</strong>)",
       "powerjack": "Eine Niedervolt Buchse",
       "fitto": "Muss zum Netzteil Stecker passen",
