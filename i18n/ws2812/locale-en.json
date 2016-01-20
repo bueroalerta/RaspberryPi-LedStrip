@@ -70,8 +70,8 @@
       "doeverything": "Now you can do nearly everything with your WS2812 LED-Strip",
       "python": "For example controlling the LED-Strip with Python",
       "brightness": "You can set the brightness and color of a pin with the following commands:",
-      "comments": "I hope you liked this tutorial. Should there be any question or remark, feel free to leave a comment.",
-      "contact": "Or <a href=\"mailto:info@popoklopsi.de\">contact me</a>, if there are any mistakes."
+      "comments": "I hope you liked this tutorial. Should there be any question or remark, feel free to leave a comment or <a href=\"mailto:info@popoklopsi.de\">contact me</a>.",
+      "donate": "If you wish to support me, I would very appreciate it "
     }
   }
 }

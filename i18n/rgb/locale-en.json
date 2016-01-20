@@ -74,8 +74,8 @@
       "fading": "I also made a small script for fading the LED's:",
       "pins": "Just set the GPIO pin numbers of the three colors",
       "start": "Then start the script with <code>python fading.py</code>",
-      "comments": "I hope you liked this tutorial. Should there be any question or remark, feel free to leave a comment.",
-      "contact": "Or <a href=\"mailto:info@popoklopsi.de\">contact me</a>, if there are any mistakes."
+      "comments": "I hope you liked this tutorial. Should there be any question or remark, feel free to leave a comment or <a href=\"mailto:info@popoklopsi.de\">contact me</a>.",
+      "donate": "If you wish to support me, I would very appreciate it "
     }
   }
 }

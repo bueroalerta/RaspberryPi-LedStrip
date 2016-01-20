@@ -74,8 +74,8 @@
       "fading": "Um die LED's faden zu lassen habe ich außerdem ein kleines Skript programmiert:",
       "pins": "Setze einfach die GPIO Pin Nummern der drei Farben ein",
       "start": "Danach starte das Skript mit <code>python fading.py</code>",
-      "comments": "Ich hoffe dir hat diese Anleitung gefallen. Sollten Fragen oder Anmerkungen bestehen, schreibe einfach einen Kommentar.",
-      "contact": "Oder <a href=\"mailto:info@popoklopsi.de\">kontaktiere mich</a>, falls irgendwelche Fehler vorhanden sind."
+      "comments": "Ich hoffe dir hat diese Anleitung gefallen. Sollten Fragen oder Anmerkungen bestehen, schreibe einfach einen Kommentar oder <a href=\"mailto:info@popoklopsi.de\">kontaktiere mich</a>.",
+      "donate": "Falls du mich unterstützen möchtest würde ich mich sehr freuen "
     }
   }
 }
