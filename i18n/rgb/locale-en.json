@@ -16,11 +16,12 @@
       "jumpmatofe": "Jumper wires (Male to Female)",
       "jumpmatoma": "Jumper wires (Male to Male)",
       "threemosfets": "Three MOSFET's (e.g <strong>IRLZ34N</strong>)",
-      "mosfetsinfo": "Important is a threshold voltage of max. 3.3V (Mostly marked by an 'L' in the name)",
+      "mosfetsinfo": "Important is a threshold voltage of max. 3.3V (Mostly marked by an 'L' (Logic-Level) in the name)",
+      "mosfetwhy": "The MOSFET's handle like a switch which will be switched on and off really fast and so control how much of the specific color should be in your light",
       "powersupply": "A power supply (<strong>12V DC ~2A</strong>)",
       "powerjack": "A power jack",
       "fitto": "Has to fit with the power supply",
-      "withwires": "I use one with screws so I can connect the wires easier",
+      "withwires": "I use one with screws so I can easier connect the wires",
       "software": "The software <a href=\"http://abyz.co.uk/rpi/pigpio/download.html\" title=\"pigpio\" target=\"_blank\"><strong>pigpio</strong></a> installed on the Raspberry Pi"
     },
     "mosfet": {
