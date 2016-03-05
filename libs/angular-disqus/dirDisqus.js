@@ -41,6 +41,7 @@
                     // Ensure that the disqus_identifier and disqus_url are both set, otherwise we will run in to identifier conflicts when using URLs with "#" in them
                     // see http://help.disqus.com/customer/portal/articles/662547-why-are-the-same-comments-showing-up-on-multiple-pages-
                     if (!scope.config.disqus_shortname ||
+                        !scope.config.disqus_identifier ||
                         !scope.config.disqus_url) {
                         return;
                     }
