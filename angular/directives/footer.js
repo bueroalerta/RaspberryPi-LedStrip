@@ -8,6 +8,10 @@
             templateUrl: "angular/directives/footer.tpl.html",
             scope: {},
             link: function () {
+                var disqus_config = function () {
+                    this.page.url = "http://popoklopsi.github.io/RaspberryPi-LedStrip/#!/";
+                };
+                
                 var dsq = document.createElement("script");
 
                 dsq.type = "text/javascript";
