@@ -10,7 +10,6 @@
             link: function ($scope) {
                 $scope.disqusConfig = {
                     disqus_shortname: "raspberrypiledstrip",
-                    disqus_identifier: "common",
                     disqus_url: "http://popoklopsi.github.io/RaspberryPi-LedStrip/#!/"
                 };
             }
