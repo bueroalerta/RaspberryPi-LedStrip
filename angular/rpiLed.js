@@ -17,7 +17,9 @@
     ga("require", "displayfeatures");
     ga("send", "pageview");
 
-    angular.module("rpiLed", ["ngCookies", "ui.router", "ngTouch", "pascalprecht.translate"]).config(["$translateProvider", "$stateProvider", "$urlRouterProvider", function ($translateProvider, $stateProvider, $urlRouterProvider) {
+    angular.module("rpiLed", ["ngCookies", "ui.router", "ngTouch", "pascalprecht.translate"]).config(["$translateProvider", "$stateProvider", "$locationProvider", "$urlRouterProvider", function ($translateProvider, $stateProvider, $locationProvider, $urlRouterProvider) {
+        $locationProvider.hashPrefix("!");
+
         $urlRouterProvider.otherwise("/");
 
         $translateProvider.useSanitizeValueStrategy("escaped");
