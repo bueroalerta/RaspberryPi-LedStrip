@@ -23,7 +23,7 @@
       "fitto": "Has to fit with the power supply",
       "withwires": "I use one with screws so I can easier connect the wires",
       "software": "The <a href=\"https://github.com/jgarff/rpi_ws281x\" title=\"WS2812X Library\" target=\"_blank\"><strong>WS281X Library</strong></a> installed on the Raspberry Pi",
-      "download": "<a href=\"https://github.com/jgarff/rpi_ws281x/archive/master.zip\" title=\"Download WS2812X Library\" target=\"_blank\">Download</a> and unzip the library or clone it with <code>git clone https://github.com/richardghirst/rpi_ws281x</code>",
+      "download": "<a href=\"https://github.com/jgarff/rpi_ws281x/archive/master.zip\" title=\"Download WS2812X Library\" target=\"_blank\">Download</a> and unzip the library or clone it with <code>git clone https://github.com/jgarff/rpi_ws281x</code>",
       "changeFolder": "Go into the <code>rpi_ws281x</code> folder",
       "scons": "Install <strong>Scons</strong> with the command <code>sudo apt-get install scons</code>",
       "install": "Compile the library with <code>sudo scons</code>",
