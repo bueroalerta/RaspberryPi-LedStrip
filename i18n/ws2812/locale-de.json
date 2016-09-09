@@ -39,7 +39,7 @@
       "connect": "2. Das Raspberry Pi verbinden",
       "pins": "Hier ist eine Übersicht über die GPIO Pins des Raspberry Pi:",
       "ground": "Verbinde zuerst einen der Ground Pins mit dem Ground-Bus des Steckbretts",
-      "connect18": "Verbinde danach den <strong>GPIO18 Pin</strong> mit dem zweiten Pin von unten rechts des Shifters"
+      "connect18": "Verbinde danach den <strong>GPIO18 Pin</strong> mit dem zweiten Pin von unten links des Shifters"
     },
     "power": {
       "connect": "3. Die Niedervolt Buchse verbinden",
