@@ -4,12 +4,12 @@
 #
  # -----------------------------------------------------
  # File        fading.py
- # Authors     Popoklopsi
+ # Authors     David Ordnung
  # License     GPLv3
- # Web         http://popoklopsi.de
+ # Web         http://dordnung.de/raspberrypi-ledstrip/
  # -----------------------------------------------------
  # 
- # Copyright (C) 2014-2015 Popoklopsi
+ # Copyright (C) 2014-2017 David Ordnung
  # 
  # This program is free software: you can redistribute it and/or modify
  # it under the terms of the GNU General Public License as published by
