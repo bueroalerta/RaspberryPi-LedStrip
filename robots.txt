@@ -1,1 +1,0 @@
-sitemap: http://popoklopsi.github.io/RaspberryPi-LedStrip/sitemap.xml
